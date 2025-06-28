@@ -2,7 +2,7 @@
 <html lang="nl" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MTS - Vervoer, ouderenzorg en schoonmaakdiensten</title>
     
     <!-- Tailwind CSS -->
@@ -12,19 +12,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts - Open Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #10b981;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             font-family: 'Open Sans', sans-serif;
             text-align: left;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
         
         .text-gradient {
-            background: linear-gradient(90deg, #3b82f6, #10b981);
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -35,11 +56,13 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            width: 100%;
         }
         
         .service-card {
             transition: all 0.3s ease;
             transform: translateY(0);
+            height: 100%;
         }
         
         .service-card:hover {
@@ -47,31 +70,13 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
+        /* Rotating words animation */
         .rotate-words {
             display: inline-block;
             position: relative;
-            text-align: left;
             height: 1.2em;
             overflow: hidden;
+            vertical-align: bottom;
         }
         
         .rotate-words b {
@@ -79,9 +84,9 @@
             position: absolute;
             width: 100%;
             left: 0;
-            color: #3b82f6;
+            color: var(--primary-color);
             display: inline-block;
-            text-align: left;
+            font-weight: 700;
         }
         
         .rotate-words b.is-visible {
@@ -90,28 +95,111 @@
         }
         
         @keyframes rotate-word {
-            0% { opacity: 0; }
-            2% { opacity: 0; transform: translateY(-30px); }
+            0% { opacity: 0; transform: translateY(-30px); }
             5% { opacity: 1; transform: translateY(0px); }
             30% { opacity: 1; transform: translateY(0px); }
             33% { opacity: 0; transform: translateY(30px); }
-            80% { opacity: 0; }
             100% { opacity: 0; }
         }
 
         /* Responsive improvements */
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             .hero-bg h1 {
-                font-size: 2.5rem;
-                line-height: 1.2;
+                font-size: 1.8rem;
+                line-height: 1.3;
+                padding: 0 10px;
             }
             
             .hero-bg p {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                padding: 0 10px;
             }
             
-            .flex-direction-column-reverse {
-                flex-direction: column-reverse !important;
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                padding: 0 10px;
+            }
+            
+            .hero-buttons a {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .intro-section .flex-col {
+                padding: 0 10px;
+            }
+            
+            .intro-section img {
+                margin-bottom: 20px;
+            }
+            
+            .service-card {
+                margin: 0 10px 15px;
+            }
+            
+            .testimonial-card {
+                margin: 0 10px 15px;
+            }
+            
+            .map-section .flex-col {
+                flex-direction: column;
+            }
+            
+            .map-section iframe {
+                height: 250px;
+            }
+            
+            .contact-info {
+                padding: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            /* Header adjustments */
+            header {
+                padding: 10px 15px;
+            }
+            
+            .logo-img {
+                height: 40px;
+                width: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            .hero-bg h1 {
+                font-size: 2.2rem;
+            }
+            
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-buttons a {
+                padding: 14px 24px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-bg h1 {
+                font-size: 2.8rem;
             }
         }
 
@@ -121,6 +209,7 @@
             position: absolute;
             left: 0;
             min-width: 200px;
+            z-index: 1000;
         }
         
         .group:hover .dropdown-menu {
@@ -134,20 +223,83 @@
         #mobile-submenu.show {
             display: block;
         }
+        
+        /* Logo styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: 50px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .logo-text span {
+            color: var(--primary-color);
+        }
+        
+        /* Ensure full width sections */
+        section {
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Button hover effects */
+        .btn-hover-effect {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hover-effect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Form elements */
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        /* Accessibility improvements */
+        a:focus, button:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* Performance optimizations */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center">
-                    <div class="h-12 w-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl">MTS</div>
-                    <span class="text-3xl font-bold mr-2"><span class="text-blue-400">M</span>TS</span>
+    <header class="bg-white shadow-sm sticky top-0 z-50 w-full">
+        <div class="container">
+            <div class="flex justify-between items-center py-3">
+                <a href="index.html" class="logo-container">
+                    <img src="images/mts_logo.webp" alt="MTS Logo" class="logo-img">
+                    <span class="logo-text"><span>M</span>TS</span>
                 </a>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -155,53 +307,53 @@
                 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center space-x-4">
-                    <a href="index.html" class="px-4 py-2 text-blue-600 font-medium rounded-lg hover:bg-blue-50">Home</a>
+                    <a href="index.html" class="px-4 py-2 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors duration-300">Home</a>
                     
                     <div class="relative group">
-                        <button class="px-4 py-2 text-gray-700 font-medium rounded-lg hover:bg-gray-100 flex items-center">
+                        <button class="px-4 py-2 text-gray-700 font-medium rounded-lg hover:bg-gray-100 flex items-center transition-colors duration-300">
                             Pagina's
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="dropdown-menu bg-white rounded-md shadow-lg py-1 z-50">
-                            <a href="services.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-left">Onze diensten</a>
-                            <a href="coming-soon.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-left">Binnenkort</a>
-                            <a href="page-404.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-left">404 Pagina</a>
+                        <div class="dropdown-menu bg-white rounded-md shadow-lg py-1">
+                            <a href="services.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-300 text-left">Onze diensten</a>
+                            <a href="coming-soon.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-300 text-left">Binnenkort</a>
+                            <a href="page-404.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-300 text-left">404 Pagina</a>
                         </div>
                     </div>
                     
-                    <a href="contact.html" class="px-4 py-2 text-gray-700 font-medium rounded-lg hover:bg-gray-100">Contact</a>
+                    <a href="contact.html" class="px-4 py-2 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-300">Contact</a>
                 </nav>
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden hidden mt-4">
-                <a href="index.html" class="block px-4 py-2 text-blue-600 font-medium rounded-lg hover:bg-blue-50 text-left">Home</a>
+            <div id="mobile-menu" class="md:hidden hidden w-full px-2">
+                <a href="index.html" class="block px-4 py-3 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors duration-300">Home</a>
                 
                 <div class="px-4 py-2">
-                    <button id="mobile-submenu-button" class="flex items-center justify-between w-full text-gray-700 font-medium text-left">
+                    <button id="mobile-submenu-button" class="flex items-center justify-between w-full text-gray-700 font-medium py-2">
                         <span>Pagina's</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transform transition-transform duration-300" id="mobile-submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div id="mobile-submenu" class="mt-2 space-y-1 pl-4">
-                        <a href="services.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 text-left">Onze diensten</a>
-                        <a href="coming-soon.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 text-left">Binnenkort</a>
-                        <a href="page-404.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 text-left">404 Pagina</a>
+                    <div id="mobile-submenu" class="mt-1 space-y-1 pl-4 hidden">
+                        <a href="services.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors duration-300">Onze diensten</a>
+                        <a href="coming-soon.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors duration-300">Binnenkort</a>
+                        <a href="page-404.html" class="block px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors duration-300">404 Pagina</a>
                     </div>
                 </div>
                 
-                <a href="contact.html" class="block px-4 py-2 text-gray-700 font-medium rounded-lg hover:bg-gray-100 text-left">Contact</a>
+                <a href="contact.html" class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-300">Contact</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg bg-gray-900 text-white py-20 md:py-32 relative overflow-hidden">
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-down">
+    <section class="hero-bg bg-gray-900 text-white py-16 md:py-24 w-full relative overflow-hidden">
+        <div class="container text-center relative z-10">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight px-4" data-aos="fade-down">
                 Welkom bij onze 
                 <span class="rotate-words">
                     <b class="is-visible">vervoer</b>
@@ -211,19 +363,19 @@
                 diensten
             </h1>
             
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto opacity-90 px-4" data-aos="fade-up" data-aos-delay="200">
                 Wij bieden complete oplossingen voor uw dagelijkse behoeften met een professioneel team en hoogwaardige diensten
             </p>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
-                <a href="#intro-section" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition duration-300 flex items-center justify-center">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 hero-buttons px-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="#intro-section" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition duration-300 flex items-center justify-center sm:w-auto btn-hover-effect">
                     <span>Introductie</span>
                     <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7"></path>
                     </svg>
                 </a>
                 
-                <a href="#services-section" class="px-8 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300 flex items-center justify-center">
+                <a href="#services-section" class="px-6 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300 flex items-center justify-center sm:w-auto btn-hover-effect">
                     <span>Ontdek diensten</span>
                     <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
@@ -232,18 +384,18 @@
             </div>
         </div>
         
-        <div class="absolute bottom-0 left-0 right-0">
-            <svg viewBox="0 0 1440 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="absolute bottom-0 left-0 right-0 w-full">
+            <svg viewBox="0 0 1440 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <path d="M0 60L48 66C96 72 192 84 288 90C384 96 480 96 576 84C672 72 768 48 864 48C960 48 1056 72 1152 78C1248 84 1344 72 1392 66L1440 60V150H1392C1344 150 1248 150 1152 150C1056 150 960 150 864 150C768 150 672 150 576 150C480 150 384 150 288 150C192 150 96 150 48 150H0V60Z" fill="white"/>
             </svg>
         </div>
     </section>
 
     <!-- Intro Section -->
-    <section id="intro-section" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
+    <section id="intro-section" class="py-16 bg-white w-full">
+        <div class="container">
             <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12" data-aos="fade-right">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8" data-aos="fade-right">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">
                         Vervoer, ouderenzorg &<br>schoonmaakdiensten
                     </h2>
@@ -264,17 +416,17 @@
                         </div>
                         <div>
                             <p class="text-gray-500">Hulp nodig?</p>
-                            <a href="tel:1102209800" class="text-xl font-semibold text-gray-800 hover:text-blue-600">110 220 9800</a>
+                            <a href="tel:1102209800" class="text-xl font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-300">110 220 9800</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                <div class="lg:w-1/2 relative mt-8 lg:mt-0" data-aos="fade-left">
                     <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Onze diensten" class="rounded-xl shadow-xl w-full">
                     
-                    <div class="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-xl shadow-lg w-3/4" data-aos="fade-up" data-aos-delay="300">
-                        <h3 class="text-xl font-bold mb-2">500+</h3>
-                        <p class="text-blue-100">Tevreden klanten</p>
+                    <div class="absolute -bottom-4 -left-4 bg-blue-600 text-white p-4 md:p-6 rounded-xl shadow-lg w-3/4" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2">500+</h3>
+                        <p class="text-blue-100 text-sm md:text-base">Tevreden klanten</p>
                     </div>
                 </div>
             </div>
@@ -282,21 +434,21 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services-section" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
+    <section id="services-section" class="py-16 bg-gray-50 w-full">
+        <div class="container">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Waarom MTS kiezen?</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                     Wij bieden unieke voordelen die ons de ideale keuze maken voor uw behoeften
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 service-grid">
                 <!-- Service 1 -->
                 <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-6">
-                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                             </svg>
                         </div>
@@ -310,8 +462,8 @@
                 <!-- Service 2 -->
                 <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-6">
-                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
@@ -325,8 +477,8 @@
                 <!-- Service 3 -->
                 <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
                     <div class="p-6">
-                        <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
                             </svg>
                         </div>
@@ -340,8 +492,8 @@
                 <!-- Service 4 -->
                 <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-6">
-                        <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="bg-red-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                             </svg>
                         </div>
@@ -355,8 +507,8 @@
                 <!-- Service 5 -->
                 <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-6">
-                        <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="bg-yellow-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
                             </svg>
                         </div>
@@ -370,8 +522,8 @@
                 <!-- Service 6 -->
                 <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
                     <div class="p-6">
-                        <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                         </div>
@@ -386,22 +538,22 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-blue-600 text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
+    <section class="py-16 bg-blue-600 text-white relative overflow-hidden w-full">
+        <div class="absolute inset-0 opacity-10 w-full h-full">
             <div class="absolute top-0 left-0 w-full h-full bg-repeat" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMiIvPjwvc3ZnPg==');"></div>
         </div>
         
-        <div class="container mx-auto px-4 relative">
-            <div class="text-center mb-16" data-aos="fade-up">
+        <div class="container relative">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Wat onze klanten zeggen</h2>
-                <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                <p class="text-lg opacity-90 max-w-2xl mx-auto">
                     We zijn trots op de tevredenheid van onze klanten en werken voortdurend aan het verbeteren van onze diensten
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Testimonial 1 -->
-                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center mb-4">
                         <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria" class="w-12 h-12 rounded-full mr-4">
                         <div>
@@ -421,7 +573,7 @@
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-center mb-4">
                         <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ahmed" class="w-12 h-12 rounded-full mr-4">
                         <div>
@@ -441,7 +593,7 @@
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex items-center mb-4">
                         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Nora" class="w-12 h-12 rounded-full mr-4">
                         <div>
@@ -462,7 +614,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="#" class="inline-block px-8 py-3 bg-white text-blue-600 font-medium rounded-full hover:bg-gray-100 transition duration-300">
+                <a href="#" class="inline-block px-6 py-3 bg-white text-blue-600 font-medium rounded-full hover:bg-gray-100 transition duration-300 btn-hover-effect">
                     Meer recensies
                 </a>
             </div>
@@ -470,33 +622,33 @@
     </section>
 
     <!-- Availability Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
+    <section class="py-16 bg-white w-full">
+        <div class="container">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
-                    <div class="bg-gray-900 text-white p-8 rounded-xl shadow-lg max-w-md mx-auto">
-                        <div id="digitalClock" class="text-6xl font-bold text-center mb-6 font-mono text-blue-400"></div>
+                <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                    <div class="bg-gray-900 text-white p-6 md:p-8 rounded-xl shadow-lg max-w-md mx-auto">
+                        <div id="digitalClock" class="text-5xl md:text-6xl font-bold text-center mb-4 md:mb-6 font-mono text-blue-400"></div>
                         <p class="text-center text-gray-300">We staan 24/7 voor u klaar</p>
                     </div>
                 </div>
                 
-                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                <div class="md:w-1/2 md:pl-8 mt-8 md:mt-0" data-aos="fade-left">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">Uw service is onze prioriteit</h2>
                     
-                    <div class="grid grid-cols-3 gap-4 mb-8">
-                        <div class="bg-blue-100 p-4 rounded-lg text-center">
-                            <span class="text-4xl font-bold block mb-2 text-blue-600">24</span>
-                            <span class="text-gray-700">Uur</span>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-blue-100 p-3 md:p-4 rounded-lg text-center">
+                            <span class="text-3xl md:text-4xl font-bold block mb-1 md:mb-2 text-blue-600">24</span>
+                            <span class="text-gray-700 text-sm md:text-base">Uur</span>
                         </div>
                         
-                        <div class="bg-green-100 p-4 rounded-lg text-center">
-                            <span class="text-4xl font-bold block mb-2 text-green-600">7</span>
-                            <span class="text-gray-700">Dagen</span>
+                        <div class="bg-green-100 p-3 md:p-4 rounded-lg text-center">
+                            <span class="text-3xl md:text-4xl font-bold block mb-1 md:mb-2 text-green-600">7</span>
+                            <span class="text-gray-700 text-sm md:text-base">Dagen</span>
                         </div>
                         
-                        <div class="bg-purple-100 p-4 rounded-lg text-center">
-                            <span class="text-4xl font-bold block mb-2 text-purple-600">365</span>
-                            <span class="text-gray-700">Dagen per jaar</span>
+                        <div class="bg-purple-100 p-3 md:p-4 rounded-lg text-center">
+                            <span class="text-3xl md:text-4xl font-bold block mb-1 md:mb-2 text-purple-600">365</span>
+                            <span class="text-gray-700 text-sm md:text-base">Dagen per jaar</span>
                         </div>
                     </div>
                     
@@ -504,7 +656,7 @@
                         Bij MTS begrijpen we dat uw behoeften geen vaste tijd kennen. Daarom staan we 24 uur per dag, 7 dagen per week klaar om ondersteuning en hulp te bieden wanneer u ons nodig heeft.
                     </p>
                     
-                    <a href="contact.html" class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition duration-300">
+                    <a href="contact.html" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition duration-300 btn-hover-effect">
                         Neem nu contact op
                     </a>
                 </div>
@@ -513,12 +665,12 @@
     </section>
 
     <!-- Map Section -->
-    <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4">
+    <section class="py-12 bg-gray-50 w-full">
+        <div class="container">
             <h2 class="text-3xl font-bold text-center mb-12 text-gradient">Onze locatie</h2>
             
             <div class="flex flex-col lg:flex-row bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="lg:w-2/3">
+                <div class="lg:w-2/3 w-full">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.215567602894!2d4.469760315745904!3d50.85436697953188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDUxJzE1LjciTiA0wrAyOCcxNC4xIkU!5e0!3m2!1snl!2sbe!4v1620000000000!5m2!1snl!2sbe" 
                             width="100%" 
                             height="450" 
@@ -530,7 +682,7 @@
                     </iframe>
                 </div>
                 
-                <div class="lg:w-1/3 p-8">
+                <div class="lg:w-1/3 w-full p-6 lg:p-8">
                     <div class="flex items-center mb-6">
                         <div class="bg-blue-100 p-3 rounded-full mr-4">
                             <i class="fas fa-map-marker-alt text-blue-600"></i>
@@ -555,7 +707,7 @@
                             </div>
                             <div>
                                 <p class="font-medium text-gray-700">E-mail:</p>
-                                <a href="mailto:info@mts.com" class="text-blue-600 hover:underline">info@mts.com</a>
+                                <a href="mailto:info@mts.com" class="text-blue-600 hover:underline transition-colors duration-300">info@mts.com</a>
                             </div>
                         </div>
                         
@@ -565,12 +717,12 @@
                             </div>
                             <div>
                                 <p class="font-medium text-gray-700">Telefoon:</p>
-                                <a href="tel:+3212345678" class="text-blue-600 hover:underline">+32 123 45 678</a>
+                                <a href="tel:+3212345678" class="text-blue-600 hover:underline transition-colors duration-300">+32 123 45 678</a>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="https://maps.google.com" target="_blank" class="mt-8 inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300">
+                    <a href="https://maps.google.com" target="_blank" class="mt-8 inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300 btn-hover-effect">
                         <i class="fas fa-map-marked-alt mr-2"></i>
                         Open in Google Maps
                     </a>
@@ -580,18 +732,18 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-blue-600 text-white">
-        <div class="container mx-auto px-4 text-center">
+    <section class="py-16 bg-blue-600 text-white w-full">
+        <div class="container text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">Klaar om u te helpen</h2>
             <p class="text-xl max-w-2xl mx-auto mb-8 opacity-90" data-aos="fade-up" data-aos-delay="100">
                 Neem vandaag nog contact met ons op en ontvang de beste diensten die aan al uw behoeften voldoen
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="tel:+3212345678" class="px-8 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300 flex items-center justify-center">
+                <a href="tel:+3212345678" class="px-8 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300 flex items-center justify-center btn-hover-effect">
                     <i class="fas fa-phone mr-2"></i>
                     Bel ons nu
                 </a>
-                <a href="contact.html" class="px-8 py-3 border-2 border-white hover:bg-white hover:bg-opacity-10 font-medium rounded-full transition duration-300 flex items-center justify-center">
+                <a href="contact.html" class="px-8 py-3 border-2 border-white hover:bg-white hover:bg-opacity-10 font-medium rounded-full transition duration-300 flex items-center justify-center btn-hover-effect">
                     <i class="fas fa-envelope mr-2"></i>
                     Stuur een bericht
                 </a>
@@ -600,68 +752,70 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row justify-between">
+    <footer class="bg-gray-900 text-white pt-16 pb-8 w-full">
+        <div class="container">
+            <div class="flex flex-col lg:flex-row justify-between footer-content">
                 <div class="lg:w-1/4 mb-12 lg:mb-0">
                     <a href="index.html" class="flex items-center mb-6">
-                        <div class="h-10 w-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-2">MTS</div>
+                        <img src="images/mts_logo.webp" alt="MTS Logo" class="h-10 w-10 mr-3">
                         <span class="text-2xl font-bold"><span class="text-blue-400">M</span>TS</span>
                     </a>
                     <p class="mb-6 text-gray-400">
                         Wij bieden complete oplossingen voor vervoer, ouderenzorg en schoonmaakdiensten volgens hoge kwaliteits- en professionaliteitsnormen.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="lg:w-1/4 mb-12 lg:mb-0">
-                    <h3 class="text-lg font-bold mb-6">Snelle links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
-                        <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Onze diensten</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="lg:w-1/4 mb-12 lg:mb-0">
-                    <h3 class="text-lg font-bold mb-6">Onze diensten</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Vervoersdiensten</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Ouderenzorg</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Schoonmaakdiensten</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Aanvullende diensten</a></li>
-                    </ul>
-                </div>
-                
-                <div class="lg:w-1/4">
-                    <h3 class="text-lg font-bold mb-6">Contact</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-                            <span class="text-gray-400">Hoofdstraat 123<br>1000 Brussel, België</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
-                            <a href="tel:+3212345678" class="text-gray-400 hover:text-white transition duration-300">+32 123 45 678</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
-                            <a href="mailto:info@mts.com" class="text-gray-400 hover:text-white transition duration-300">info@mts.com</a>
-                        </li>
-                    </ul>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:w-3/4 footer-links">
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Snelle links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
+                            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Onze diensten</a></li>
+                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Onze diensten</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Vervoersdiensten</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Ouderenzorg</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Schoonmaakdiensten</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Aanvullende diensten</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Contact</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                                <span class="text-gray-400">Hoofdstraat 123<br>1000 Brussel, België</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+                                <a href="tel:+3212345678" class="text-gray-400 hover:text-white transition duration-300">+32 123 45 678</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                                <a href="mailto:info@mts.com" class="text-gray-400 hover:text-white transition duration-300">info@mts.com</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             
@@ -678,7 +832,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible hover:bg-blue-700">
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible hover:bg-blue-700 btn-hover-effect">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -690,19 +844,36 @@
             duration: 800,
             easing: 'ease-in-out',
             once: true,
-            mirror: false
+            mirror: false,
+            disable: window.innerWidth < 768
         });
         
         // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
         });
         
         // Mobile submenu toggle
-        document.getElementById('mobile-submenu-button').addEventListener('click', function() {
-            const submenu = document.getElementById('mobile-submenu');
-            submenu.classList.toggle('show');
+        const mobileSubmenuButton = document.getElementById('mobile-submenu-button');
+        const mobileSubmenu = document.getElementById('mobile-submenu');
+        const mobileSubmenuArrow = document.getElementById('mobile-submenu-arrow');
+        
+        mobileSubmenuButton.addEventListener('click', function() {
+            mobileSubmenu.classList.toggle('show');
+            mobileSubmenuArrow.classList.toggle('rotate-180');
+            mobileSubmenuButton.setAttribute('aria-expanded', mobileSubmenu.classList.contains('show'));
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
         });
         
         // Digital clock
@@ -741,16 +912,38 @@
             let currentWord = 0;
             
             // Show first word initially
-            words[0].classList.add('is-visible');
+            if (words.length > 0) {
+                words[0].classList.add('is-visible');
+            }
             
-            setInterval(() => {
+            const interval = setInterval(() => {
                 words.forEach(word => word.classList.remove('is-visible'));
                 currentWord = (currentWord + 1) % words.length;
                 words[currentWord].classList.add('is-visible');
             }, 4000);
+            
+            // Cleanup on unmount
+            return () => clearInterval(interval);
         }
         
-        rotateWords();
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            rotateWords();
+            
+            // Disable animations on mobile for better performance
+            if (window.innerWidth < 768) {
+                document.body.classList.add('no-animations');
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                document.body.classList.remove('no-animations');
+            } else {
+                document.body.classList.add('no-animations');
+            }
+        });
     </script>
 </body>
 </html>
