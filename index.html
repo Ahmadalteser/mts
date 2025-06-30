@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MTS - Vervoer, ouderenzorg en schoonmaakdiensten</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50 w-full">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-3">
+            <a href="index.html" class="flex items-center">
+                <img src="images/mts_logo.webp" alt="MTS Logo" class="h-12">
+                <span class="text-3xl font-bold ml-2"><span class="text-blue-400">M</span>TS</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-1">
+                <!-- Home Tab -->
+                <a href="index.html" id="home-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-home mr-2 text-blue-400"></i>
+                    <span>Home</span>
+                </a>
+                
+                <!-- Cleaning Tab -->
+                <a href="cleaning.html" id="cleaning-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-broom mr-2 text-blue-400"></i>
+                    <span>Schoonmaak</span>
+                </a>
+                
+                <!-- Transport Tab -->
+                <a href="transport.html" id="transport-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-truck-moving mr-2 text-blue-400"></i>
+                    <span>Transport</span>
+                </a>
+                
+                <!-- Elderly Care Tab -->
+                <a href="elderly-care.html" id="care-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-hands-helping mr-2 text-blue-400"></i>
+                    <span>Ouderenzorg</span>
+                </a>
+                
+                <!-- Contact Tab -->
+                <a href="contact.html" id="contact-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-envelope mr-2 text-blue-400"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden mt-2 pb-2 space-y-1">
+            <!-- Home Mobile Tab -->
+            <a href="index.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-home mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Home</span>
+            </a>
+            
+            <!-- Cleaning Mobile Tab -->
+            <a href="cleaning.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-broom mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Schoonmaak</span>
+            </a>
+            
+            <!-- Transport Mobile Tab -->
+            <a href="transport.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-truck-moving mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Transport</span>
+            </a>
+            
+            <!-- Elderly Care Mobile Tab -->
+            <a href="elderly-care.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-hands-helping mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Ouderenzorg</span>
+            </a>
+            
+            <!-- Contact Mobile Tab -->
+            <a href="contact.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-envelope mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero-bg bg-gray-900 text-white py-16 md:py-24 w-full relative overflow-hidden">
+        <div class="container text-center relative z-10">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight px-4" data-aos="fade-down">
+                Welkom bij onze 
+                <span class="rotate-words">
+                    <b class="is-visible">vervoer</b>
+                    <b>ouderenzorg</b>
+                    <b>schoonmaak</b>
+                </span>
+                diensten
+            </h1>
+            
+            <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto opacity-90 px-4" data-aos="fade-up" data-aos-delay="200">
+                Wij bieden complete oplossingen voor uw dagelijkse behoeften met een professioneel team en hoogwaardige diensten
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 hero-buttons px-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="#intro-section" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition duration-300 flex items-center justify-center sm:w-auto btn-hover-effect">
+                    <span>Introductie</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7"></path>
+                    </svg>
+                </a>
+                
+                <a href="#services-section" class="px-6 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300 flex items-center justify-center sm:w-auto btn-hover-effect">
+                    <span>Ontdek diensten</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 w-full">
+            <svg viewBox="0 0 1440 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0 60L48 66C96 72 192 84 288 90C384 96 480 96 576 84C672 72 768 48 864 48C960 48 1056 72 1152 78C1248 84 1344 72 1392 66L1440 60V150H1392C1344 150 1248 150 1152 150C1056 150 960 150 864 150C768 150 672 150 576 150C480 150 384 150 288 150C192 150 96 150 48 150H0V60Z" fill="white"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section id="intro-section" class="py-16 bg-white w-full">
+        <div class="container">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8" data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">
+                        Vervoer, ouderenzorg &<br>schoonmaakdiensten
+                    </h2>
+                    
+                    <p class="text-gray-600 mb-4">
+                        Bij MTS bieden we een compleet pakket aan diensten die speciaal zijn ontworpen om aan uw dagelijkse behoeften te voldoen. Wij geloven dat het leven gemakkelijker kan zijn met de juiste diensten.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-6">
+                        Ons team van hoogopgeleide professionals staat klaar om u een uitzonderlijke service te bieden die aan uw verwachtingen voldoet en deze overtreft. Wij staan voor kwaliteit, betrouwbaarheid en comfort in alles wat we doen.
+                    </p>
+                    
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-gray-500">Hulp nodig?</p>
+                            <a href="tel:1102209800" class="text-xl font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-300">110 220 9800</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative mt-8 lg:mt-0" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Onze diensten" class="rounded-xl shadow-xl w-full">
+                    
+                    <div class="absolute -bottom-4 -left-4 bg-blue-600 text-white p-4 md:p-6 rounded-xl shadow-lg w-3/4" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2">500+</h3>
+                        <p class="text-blue-100 text-sm md:text-base">Tevreden klanten</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services-section" class="py-16 bg-gray-50 w-full">
+        <div class="container">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Waarom MTS kiezen?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Wij bieden unieke voordelen die ons de ideale keuze maken voor uw behoeften
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 service-grid">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Gekwalificeerd team</h3>
+                        <p class="text-gray-600">
+                            We selecteren ons team zorgvuldig en bieden hen voortdurende training om de hoogste kwaliteits- en professionaliteitsnormen te garanderen in elke dienst die we leveren.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <div class="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Ruime ervaring</h3>
+                        <p class="text-gray-600">
+                            Met jarenlange ervaring in verschillende vakgebieden bieden we doordachte oplossingen die gebaseerd zijn op een diepgaand inzicht in de behoeften van klanten.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Hoge flexibiliteit</h3>
+                        <p class="text-gray-600">
+                            We bieden op maat gemaakte oplossingen die aansluiten bij uw unieke behoeften, met een flexibele planning die past bij uw tijd en verplichtingen.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <div class="bg-red-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Volledige privacy</h3>
+                        <p class="text-gray-600">
+                            Wij garanderen de vertrouwelijkheid van uw informatie en privacy, met een betrouwbaar team dat zich houdt aan de hoogste normen voor veiligheid en professionaliteit.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <div class="bg-yellow-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Uitstekende klantenservice</h3>
+                        <p class="text-gray-600">
+                            Ons klantenserviceteam staat altijd voor u klaar om u te helpen, met snelle reacties en effectieve oplossingen voor eventuele vragen of verzoeken.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Snelle respons</h3>
+                        <p class="text-gray-600">
+                            In noodsituaties of dringende behoeften garanderen we een snelle aankomst binnen een recordtijd om u te helpen wanneer u ons nodig heeft.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-blue-600 text-white relative overflow-hidden w-full">
+        <div class="absolute inset-0 opacity-10 w-full h-full">
+            <div class="absolute top-0 left-0 w-full h-full bg-repeat" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMiIvPjwvc3ZnPg==');"></div>
+        </div>
+        
+        <div class="container relative">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Wat onze klanten zeggen</h2>
+                <p class="text-lg opacity-90 max-w-2xl mx-auto">
+                    We zijn trots op de tevredenheid van onze klanten en werken voortdurend aan het verbeteren van onze diensten
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Maria</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="opacity-90">
+                        "Fantastische service van het schoonmaakteam, het huis glimt! Professionaliteit en aandacht voor details zijn duidelijk in alles. Ik raad ze ten zeerste aan."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ahmed" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Ahmed</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="opacity-90">
+                        "Uitstekende vervoersservice, het team was zeer professioneel bij het verhuizen van mijn meubels naar het nieuwe huis. Alles arriveerde onbeschadigd en op tijd."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Nora" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Nora</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="opacity-90">
+                        "De verpleegster die voor mijn moeder zorgt is geweldig, geduldig en professioneel. Ik voel me op mijn gemak omdat mijn moeder in goede handen is. Bedankt!"
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-6 py-3 bg-white text-blue-600 font-medium rounded-full hover:bg-gray-100 transition duration-300 btn-hover-effect">
+                    Meer recensies
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Availability Section -->
+    <section class="py-16 bg-white w-full">
+        <div class="container">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                    <div class="bg-gray-900 text-white p-6 md:p-8 rounded-xl shadow-lg max-w-md mx-auto">
+                        <div id="digitalClock" class="text-5xl md:text-6xl font-bold text-center mb-4 md:mb-6 font-mono text-blue-400"></div>
+                        <p class="text-center text-gray-300">We staan 24/7 voor u klaar</p>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-8 mt-8 md:mt-0" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">Uw service is onze prioriteit</h2>
+                    
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-blue-100 p-3 md:p-4 rounded-lg text-center">
+                            <span class="text-3xl md:text-4xl font-bold block mb-1 md:mb-2 text-blue-600">24</span>
+                            <span class="text-gray-700 text-sm md:text-base">Uur</span>
+                        </div>
+                        
+                        <div class="bg-green-100 p-3 md:p-4 rounded-lg text-center">
+                            <span class="text-3xl md:text-4xl font-bold block mb-1 md:mb-2 text-green-600">7</span>
+                            <span class="text-gray-700 text-sm md:text-base">Dagen</span>
+                        </div>
+                        
+                        <div class="bg-purple-100 p-3 md:p-4 rounded-lg text-center">
+                            <span class="text-3xl md:text-4xl font-bold block mb-1 md:mb-2 text-purple-600">365</span>
+                            <span class="text-gray-700 text-sm md:text-base">Dagen per jaar</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6">
+                        Bij MTS begrijpen we dat uw behoeften geen vaste tijd kennen. Daarom staan we 24 uur per dag, 7 dagen per week klaar om ondersteuning en hulp te bieden wanneer u ons nodig heeft.
+                    </p>
+                    
+                    <a href="contact.html" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition duration-300 btn-hover-effect">
+                        Neem nu contact op
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-12 bg-gray-50 w-full">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gradient">Onze locatie</h2>
+            
+            <div class="flex flex-col lg:flex-row bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="lg:w-2/3 w-full">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.215567602894!2d4.469760315745904!3d50.85436697953188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDUxJzE1LjciTiA0wrAyOCcxNC4xIkU!5e0!3m2!1snl!2sbe!4v1620000000000!5m2!1snl!2sbe" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="h-full min-h-[300px] lg:min-h-[450px]">
+                    </iframe>
+                </div>
+                
+                <div class="lg:w-1/3 w-full p-6 lg:p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Bezoek ons</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-building text-gray-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700">Adres:</p>
+                                <p class="text-gray-600">Hoofdstraat 123<br>1000 Brussel, België</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-gray-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700">E-mail:</p>
+                                <a href="mailto:info@mts.com" class="text-blue-600 hover:underline transition-colors duration-300">info@mts.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-gray-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-700">Telefoon:</p>
+                                <a href="tel:+3212345678" class="text-blue-600 hover:underline transition-colors duration-300">+32 123 45 678</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://maps.google.com" target="_blank" class="mt-8 inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300 btn-hover-effect">
+                        <i class="fas fa-map-marked-alt mr-2"></i>
+                        Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-600 text-white w-full">
+        <div class="container text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">Klaar om u te helpen</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-8 opacity-90" data-aos="fade-up" data-aos-delay="100">
+                Neem vandaag nog contact met ons op en ontvang de beste diensten die aan al uw behoeften voldoen
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="tel:+3212345678" class="px-8 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300 flex items-center justify-center btn-hover-effect">
+                    <i class="fas fa-phone mr-2"></i>
+                    Bel ons nu
+                </a>
+                <a href="contact.html" class="px-8 py-3 border-2 border-white hover:bg-white hover:bg-opacity-10 font-medium rounded-full transition duration-300 flex items-center justify-center btn-hover-effect">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Stuur een bericht
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 w-full">
+        <div class="container">
+            <div class="flex flex-col lg:flex-row justify-between footer-content">
+                <div class="lg:w-1/4 mb-12 lg:mb-0">
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="images/mts_logo.webp" alt="MTS Logo" class="h-10 w-10 mr-3">
+                        <span class="text-2xl font-bold"><span class="text-blue-400">M</span>TS</span>
+                    </a>
+                    <p class="mb-6 text-gray-400">
+                        Wij bieden complete oplossingen voor vervoer, ouderenzorg en schoonmaakdiensten volgens hoge kwaliteits- en professionaliteitsnormen.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:w-3/4 footer-links">
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Snelle links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
+                            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Onze diensten</a></li>
+                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Onze diensten</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Vervoersdiensten</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Ouderenzorg</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Schoonmaakdiensten</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Aanvullende diensten</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Contact</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                                <span class="text-gray-400">Hoofdstraat 123<br>1000 Brussel, België</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+                                <a href="tel:+3212345678" class="text-gray-400 hover:text-white transition duration-300">+32 123 45 678</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                                <a href="mailto:info@mts.com" class="text-gray-400 hover:text-white transition duration-300">info@mts.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2023 MTS. Alle rechten voorbehouden.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Servicevoorwaarden</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Privacybeleid</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible hover:bg-blue-700 btn-hover-effect">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

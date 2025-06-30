@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportdiensten - MTS</title>
+    <!-- الروابط كما في الصفحة الرئيسية -->
+         
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+         <header class="bg-white shadow-sm sticky top-0 z-50 w-full">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-3">
+            <a href="index.html" class="flex items-center">
+                <img src="images/mts_logo.webp" alt="MTS Logo" class="h-12">
+                <span class="text-3xl font-bold ml-2"><span class="text-blue-400">M</span>TS</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-1">
+                <!-- Home Tab -->
+                <a href="index.html" id="home-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-home mr-2 text-blue-400"></i>
+                    <span>Home</span>
+                </a>
+                
+                <!-- Cleaning Tab -->
+                <a href="cleaning.html" id="cleaning-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-broom mr-2 text-blue-400"></i>
+                    <span>Schoonmaak</span>
+                </a>
+                
+                <!-- Transport Tab -->
+                <a href="transport.html" id="transport-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-truck-moving mr-2 text-blue-400"></i>
+                    <span>Transport</span>
+                </a>
+                
+                <!-- Elderly Care Tab -->
+                <a href="elderly-care.html" id="care-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-hands-helping mr-2 text-blue-400"></i>
+                    <span>Ouderenzorg</span>
+                </a>
+                
+                <!-- Contact Tab -->
+                <a href="contact.html" id="contact-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-envelope mr-2 text-blue-400"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden mt-2 pb-2 space-y-1">
+            <!-- Home Mobile Tab -->
+            <a href="index.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-home mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Home</span>
+            </a>
+            
+            <!-- Cleaning Mobile Tab -->
+            <a href="cleaning.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-broom mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Schoonmaak</span>
+            </a>
+            
+            <!-- Transport Mobile Tab -->
+            <a href="transport.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-truck-moving mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Transport</span>
+            </a>
+            
+            <!-- Elderly Care Mobile Tab -->
+            <a href="elderly-care.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-hands-helping mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Ouderenzorg</span>
+            </a>
+            
+            <!-- Contact Mobile Tab -->
+            <a href="contact.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-envelope mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="transport-hero bg-gray-900 text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Professioneel Transport</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+                Betrouwbare verhuizingen en transportoplossingen voor elke behoefte
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Onze Transportdiensten</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Complete verhuis- en transportoplossingen voor particulieren en bedrijven
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 rounded-xl" data-aos="fade-up">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-home text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Particuliere Verhuizingen</h3>
+                    <p class="text-gray-600 text-center">
+                        Stressvrij verhuizen met ons deskundige team dat zorg draagt voor al uw spullen
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-building text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Kantoorverhuizingen</h3>
+                    <p class="text-gray-600 text-center">
+                        Professionele verplaatsing van kantoorinventaris met minimale bedrijfsonderbreking
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-truck text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Goederenvervoer</h3>
+                    <p class="text-gray-600 text-center">
+                        Veilig transport van goederen door heel Nederland met onze moderne vloot
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Onze Werkwijze</h2>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="process-step text-center" data-aos="fade-up">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-blue-600 font-bold text-xl">1</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Offerte</h3>
+                    <p class="text-gray-600 text-sm">
+                        Gratis en vrijblijvende offerte op maat
+                    </p>
+                </div>
+                
+                <div class="process-step text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-blue-600 font-bold text-xl">2</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Planning</h3>
+                    <p class="text-gray-600 text-sm">
+                        Gezamenlijke planning van uw verhuizing
+                    </p>
+                </div>
+                
+                <div class="process-step text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-blue-600 font-bold text-xl">3</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Uitvoering</h3>
+                    <p class="text-gray-600 text-sm">
+                        Professionele uitvoering door ons team
+                    </p>
+                </div>
+                
+                <div class="process-step text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-blue-600 font-bold text-xl">4</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Nazorg</h3>
+                    <p class="text-gray-600 text-sm">
+                        Evaluatie en eventuele nazorg
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Onze Moderne Vloot</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Uitgerust met de nieuwste technieken voor veilig transport
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="vehicle-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Bestelbus"
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Bestelbussen</h3>
+                        <p class="text-gray-600 mb-4">
+                            Ideaal voor kleine verhuizingen en transport van kleinere goederen
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                <span>Laadvermogen tot 1.500 kg</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                <span>Voorzien van laadklep</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vehicle-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Verhuiswagen"
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Verhuiswagens</h3>
+                        <p class="text-gray-600 mb-4">
+                            Perfect voor complete woning- en kantoorverhuizingen
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                <span>Laadvermogen tot 5.000 kg</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                <span>Inclusief verhuismateriaal</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vehicle-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32bbc10722?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Vrachtwagen"
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Vrachtwagens</h3>
+                        <p class="text-gray-600 mb-4">
+                            Voor groot transport en commerciële verhuizingen
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                <span>Laadvermogen tot 12.000 kg</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                <span>Met laadkraan beschikbaar</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-600 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Klaar om te verhuizen?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Vraag nu een gratis offerte aan voor uw verhuizing of transport
+            </p>
+            <a href="contact.html" class="inline-block px-8 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300">
+                Offerte aanvragen
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+      <footer class="bg-gray-900 text-white pt-16 pb-8 w-full">
+        <div class="container">
+            <div class="flex flex-col lg:flex-row justify-between footer-content">
+                <div class="lg:w-1/4 mb-12 lg:mb-0">
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="images/mts_logo.webp" alt="MTS Logo" class="h-10 w-10 mr-3">
+                        <span class="text-2xl font-bold"><span class="text-blue-400">M</span>TS</span>
+                    </a>
+                    <p class="mb-6 text-gray-400">
+                        Wij bieden complete oplossingen voor vervoer, ouderenzorg en schoonmaakdiensten volgens hoge kwaliteits- en professionaliteitsnormen.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300 btn-hover-effect">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:w-3/4 footer-links">
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Snelle links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
+                            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Onze diensten</a></li>
+                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Onze diensten</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Vervoersdiensten</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Ouderenzorg</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Schoonmaakdiensten</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Aanvullende diensten</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">Contact</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                                <span class="text-gray-400">Hoofdstraat 123<br>1000 Brussel, België</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+                                <a href="tel:+3212345678" class="text-gray-400 hover:text-white transition duration-300">+32 123 45 678</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                                <a href="mailto:info@mts.com" class="text-gray-400 hover:text-white transition duration-300">info@mts.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2023 MTS. Alle rechten voorbehouden.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Servicevoorwaarden</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Privacybeleid</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible hover:bg-blue-700 btn-hover-effect">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script src="script.js"></script>
+</body>
+</html>

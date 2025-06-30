@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neem Contact Op - MTS</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+       <header class="bg-white shadow-sm sticky top-0 z-50 w-full">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-3">
+            <a href="index.html" class="flex items-center">
+                <img src="images/mts_logo.webp" alt="MTS Logo" class="h-12">
+                <span class="text-3xl font-bold ml-2"><span class="text-blue-400">M</span>TS</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-1">
+                <!-- Home Tab -->
+                <a href="index.html" id="home-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-home mr-2 text-blue-400"></i>
+                    <span>Home</span>
+                </a>
+                
+                <!-- Cleaning Tab -->
+                <a href="cleaning.html" id="cleaning-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-broom mr-2 text-blue-400"></i>
+                    <span>Schoonmaak</span>
+                </a>
+                
+                <!-- Transport Tab -->
+                <a href="transport.html" id="transport-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-truck-moving mr-2 text-blue-400"></i>
+                    <span>Transport</span>
+                </a>
+                
+                <!-- Elderly Care Tab -->
+                <a href="elderly-care.html" id="care-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-hands-helping mr-2 text-blue-400"></i>
+                    <span>Ouderenzorg</span>
+                </a>
+                
+                <!-- Contact Tab -->
+                <a href="contact.html" id="contact-tab" class="px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                    <i class="fas fa-envelope mr-2 text-blue-400"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden mt-2 pb-2 space-y-1">
+            <!-- Home Mobile Tab -->
+            <a href="index.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-home mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Home</span>
+            </a>
+            
+            <!-- Cleaning Mobile Tab -->
+            <a href="cleaning.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-broom mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Schoonmaak</span>
+            </a>
+            
+            <!-- Transport Mobile Tab -->
+            <a href="transport.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-truck-moving mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Transport</span>
+            </a>
+            
+            <!-- Elderly Care Mobile Tab -->
+            <a href="elderly-care.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-hands-helping mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Ouderenzorg</span>
+            </a>
+            
+            <!-- Contact Mobile Tab -->
+            <a href="contact.html" class="block px-4 py-2 font-medium rounded-lg transition duration-300 flex items-center hover:bg-blue-50 hover:text-blue-600">
+                <i class="fas fa-envelope mr-3 text-blue-400 w-5 text-center"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+</header>
+    <!-- Hero Section -->
+    <section class="hero-bg bg-gray-900 text-white py-20 md:py-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-down">
+                Welkom bij ons bedrijf dat diensten aanbiedt voor 
+                <span class="rotate-words">
+                    <b class="is-visible">Transport</b>
+                    <b>Ouderenzorg</b>
+                    <b>Schoonmaak</b>
+                </span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Wij bieden complete oplossingen voor uw dagelijkse behoeften met een professioneel team en hoogwaardige diensten
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="#intro-section" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition duration-300 flex items-center justify-center">
+                    <span>Introductie</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7"></path>
+                    </svg>
+                </a>
+                
+                <a href="#services-section" class="px-8 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300 flex items-center justify-center">
+                    <span>Ontdek onze diensten</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 60L48 66C96 72 192 84 288 90C384 96 480 96 576 84C672 72 768 48 864 48C960 48 1056 72 1152 78C1248 84 1344 72 1392 66L1440 60V150H1392C1344 150 1248 150 1152 150C1056 150 960 150 864 150C768 150 672 150 576 150C480 150 384 150 288 150C192 150 96 150 48 150H0V60Z" fill="white"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-form-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">We staan voor u klaar</h1>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                    Ons team staat altijd tot uw beschikking voor vragen en het bieden van de beste oplossingen voor uw behoeften
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Contact Information -->
+                <div class="lg:w-5/12" data-aos="fade-right">
+                    <h2 class="text-3xl font-bold mb-6 text-gradient">Contactgegevens</h2>
+                    
+                    <p class="text-gray-600 mb-8">
+                        Bij MTS bieden we een compleet pakket aan diensten die speciaal zijn ontworpen om aan uw dagelijkse behoeften te voldoen. Neem gerust contact met ons op via een van de volgende kanalen:
+                    </p>
+                    
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-blue-100 p-3 rounded-full ml-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Adres</h4>
+                                <p class="text-gray-600">Palmstraat, Handeltoren, 10e verdieping<br>Amsterdam, Nederland</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mb-6">
+                            <div class="bg-blue-100 p-3 rounded-full ml-4">
+                                <i class="fas fa-phone-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Telefoon</h4>
+                                <a href="tel:+31201234567" class="text-gray-600 hover:text-blue-600 transition duration-300">+31 20 123 4567</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full ml-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">E-mail</h4>
+                                <a href="mailto:info@mts.nl" class="text-gray-600 hover:text-blue-600 transition duration-300">info@mts.nl</a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h4 class="font-bold text-gray-800 mb-4">Openingstijden</h4>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Maandag - Vrijdag</span>
+                                <span class="font-medium">8:00 - 17:30</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Zaterdag - Zondag</span>
+                                <span class="font-medium">Gesloten</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="lg:w-7/12" data-aos="fade-left">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-8">
+                            <div class="bg-blue-600 text-white p-3 rounded-full ml-4">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gradient">Stuur een bericht</h2>
+                        </div>
+                        
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Volledige naam</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 form-input rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Vul uw naam in" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">E-mailadres</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 form-input rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="uw@email.nl" required>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">Telefoonnummer</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-3 form-input rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="+31 6 XX XXXXXX">
+                                </div>
+                                
+                                <div>
+                                    <label for="service" class="block text-gray-700 font-medium mb-2">Soort dienst</label>
+                                    <select id="service" class="w-full px-4 py-3 form-input rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <option value="" selected disabled>Selecteer gewenste dienst</option>
+                                        <option value="transport">Transportdiensten</option>
+                                        <option value="elderly-care">Ouderenzorg</option>
+                                        <option value="cleaning">Schoonmaakdiensten</option>
+                                        <option value="other">Andere diensten</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Bericht</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 form-input rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Vul hier uw bericht in..."></textarea>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" id="agree" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <label for="agree" class="ml-2 text-gray-700">Ik ga akkoord met de <a href="#" class="text-blue-600 hover:underline">Algemene Voorwaarden</a> en <a href="#" class="text-blue-600 hover:underline">Privacybeleid</a></label>
+                            </div>
+                            
+                            <button type="submit" class="w-full md:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300">
+                                Bericht versturen
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.476539978816!2d4.893984315801712!3d52.3624479797846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c73bda94c5%3A0x4a8f6e8b4f6e8b4f!2sDam%20Square%2C%20Amsterdam!5e0!3m2!1sen!2snl!4v1620000000000!5m2!1sen!2snl" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        class="h-full min-h-[300px]">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Heeft u vragen?</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-8 opacity-90">
+                Ons ondersteuningsteam staat 24/7 voor u klaar om uw vragen te beantwoorden
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:+31201234567" class="px-8 py-3 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full transition duration-300 flex items-center justify-center">
+                    <i class="fas fa-phone mr-2"></i>
+                    Bel ons nu
+                </a>
+                <a href="mailto:info@mts.nl" class="px-8 py-3 border-2 border-white hover:bg-white hover:bg-opacity-10 font-medium rounded-full transition duration-300 flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Stuur een e-mail
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between">
+                <div class="lg:w-1/4 mb-12 lg:mb-0">
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="images/mts_logo.webp" alt="MTS Logo" class="h-10">
+                        <span class="text-2xl font-bold ml-2"><span class="text-blue-400">M</span>TS</span>
+                    </a>
+                    <p class="mb-6 text-gray-400">
+                        Wij bieden complete oplossingen voor transportdiensten, ouderenzorg en schoonmaak met hoge kwaliteitsnormen en professionaliteit.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/4 mb-12 lg:mb-0">
+                    <h3 class="text-lg font-bold mb-6">Snelle links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Diensten</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="lg:w-1/4 mb-12 lg:mb-0">
+                    <h3 class="text-lg font-bold mb-6">Onze diensten</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Transportdiensten</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Ouderenzorg</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Schoonmaakdiensten</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fas fa-chevron-right mr-2 text-xs"></i> Aanvullende diensten</a></li>
+                    </ul>
+                </div>
+                
+                <div class="lg:w-1/4">
+                    <h3 class="text-lg font-bold mb-6">Contact</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                            <span class="text-gray-400">Palmstraat, Handeltoren<br>Amsterdam, Nederland</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+                            <a href="tel:+31201234567" class="text-gray-400 hover:text-white transition duration-300">+31 20 123 4567</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <a href="mailto:info@mts.nl" class="text-gray-400 hover:text-white transition duration-300">info@mts.nl</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2023 MTS. Alle rechten voorbehouden.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Algemene Voorwaarden</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition duration-300">Privacybeleid</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible hover:bg-blue-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
